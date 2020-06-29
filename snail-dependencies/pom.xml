@@ -16,6 +16,7 @@
 	<description>第三方依赖包管理</description>
 
 	<properties>
+		<java-jwt.version>3.10.3</java-jwt.version>
 	</properties>
 
 	<dependencyManagement>
@@ -33,6 +34,12 @@
 				<version>Hoxton.SR3</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>${java-jwt.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
