@@ -17,6 +17,8 @@
 
 	<properties>
 		<java-jwt.version>3.10.3</java-jwt.version>
+		<fastjson.version>1.2.72</fastjson.version>
+		<hutool-all.version>5.3.8</hutool-all.version>
 	</properties>
 
 	<dependencyManagement>
@@ -41,6 +43,19 @@
 				<artifactId>java-jwt</artifactId>
 				<version>${java-jwt.version}</version>
 			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool-all.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
