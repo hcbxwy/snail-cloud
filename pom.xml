@@ -11,10 +11,13 @@
 
 	<modules>
 		<module>snail-example</module>
+		<module>snail-common</module>
 	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<snail-dependencies.version>0.0.1-SNAPSHOT</snail-dependencies.version>
+		<snail-common.version>0.0.1-SNAPSHOT</snail-common.version>
 	</properties>
 
 	<dependencyManagement>
@@ -22,9 +25,14 @@
 			<dependency>
 				<groupId>com.hcbxwy</groupId>
 				<artifactId>snail-dependencies</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${snail-dependencies.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.hcbxwy</groupId>
+				<artifactId>snail-common</artifactId>
+				<version>${snail-common.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
