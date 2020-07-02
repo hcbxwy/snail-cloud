@@ -21,8 +21,8 @@ public class TokenServiceImpl implements TokenService {
     public String getToken(String userId, String password, Object data) {
         return JWT.create()
                 .withAudience(userId)
-                // 有效期60秒
-                .withExpiresAt(new Date(System.currentTimeMillis() + 60 * 1000))
+                // 有效期1小时
+                .withExpiresAt(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
                 .withClaim("data", JSONObject.toJSONString(data))
                 .sign(Algorithm.HMAC256(JwtConstant.PRIVATE_SECRET));
     }

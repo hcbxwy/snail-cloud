@@ -1,7 +1,8 @@
 package com.hcbxwy.snail.example.auth.controller;
 
-import org.springframework.context.annotation.Bean;
+import com.hcbxwy.snail.common.interceptor.ResultResponseInterceptor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -16,12 +17,20 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authenticationInterceptor())
-                .addPathPatterns("/**");
+        // 权限拦截器
+        this.excludePathPatterns(registry.addInterceptor(new AuthenticationInterceptor()));
+        // 统一接口返回格式拦截器
+        this.excludePathPatterns(registry.addInterceptor(new ResultResponseInterceptor()));
     }
 
-    @Bean
-    public AuthenticationInterceptor authenticationInterceptor() {
-        return new AuthenticationInterceptor();
+    /**
+     * 配置需要拦截的 URL
+     *
+     * @param registration 拦截注册器
+     * @author Billson
+     * @date 2020/7/2 8:37 上午
+     */
+    public void excludePathPatterns(InterceptorRegistration registration) {
+        registration.addPathPatterns("/**");
     }
 }

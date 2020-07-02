@@ -1,7 +1,7 @@
 package com.hcbxwy.snail.example.user.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.hcbxwy.snail.example.common.BaseController;
+import com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController extends BaseController {
 
     @GetMapping("/getLoginUser")
-    public String getUser() {
-        return JSONObject.toJSONString(getLoginUser());
+    public LoginUserDTO getUser() {
+        return getLoginUser();
     }
 }
