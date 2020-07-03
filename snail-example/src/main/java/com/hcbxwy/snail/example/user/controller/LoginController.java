@@ -1,10 +1,10 @@
 package com.hcbxwy.snail.example.user.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.hcbxwy.snail.example.auth.controller.AuthIgnore;
-import com.hcbxwy.snail.example.common.BaseController;
-import com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO;
+import com.hcbxwy.snail.common.annotation.AuthIgnore;
+import com.hcbxwy.snail.common.base.BaseController;
+import com.hcbxwy.snail.common.entity.LoginUser;
 import com.hcbxwy.snail.example.user.pojo.vo.LoginVO;
+import com.hcbxwy.snail.example.user.service.LoginService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +24,8 @@ import javax.validation.Valid;
 @RequestMapping("/login")
 public class LoginController extends BaseController {
 
+    private final LoginService loginService;
+
     /**
      * 用户登录接口
      *
@@ -34,9 +36,8 @@ public class LoginController extends BaseController {
      */
     @PostMapping
     @AuthIgnore
-    public String login(@RequestBody @Valid LoginVO loginVO) {
-        LoginUserDTO loginUserDTO = loginService.login(loginVO);
-        return JSONObject.toJSONString(loginUserDTO);
+    public LoginUser login(@RequestBody @Valid LoginVO loginVO) {
+        return loginService.login(loginVO);
     }
 
 }

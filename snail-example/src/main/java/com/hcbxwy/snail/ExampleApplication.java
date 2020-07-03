@@ -1,4 +1,4 @@
-package com.hcbxwy.snail.example;
+package com.hcbxwy.snail;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
