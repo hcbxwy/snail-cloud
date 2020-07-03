@@ -1,8 +1,8 @@
 package com.hcbxwy.snail.example.demo.controller.service.impl;
 
-import com.hcbxwy.snail.example.common.BaseServiceImpl;
+import com.hcbxwy.snail.common.base.BaseServiceImpl;
 import com.hcbxwy.snail.example.demo.controller.service.DemoService;
-import com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO;
+import com.hcbxwy.snail.common.entity.LoginUser;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class DemoServiceImpl extends BaseServiceImpl implements DemoService {
 
     @Override
-    public LoginUserDTO getLoginInfo() {
+    public LoginUser getLoginInfo() {
         return getLoginUser();
     }
 }

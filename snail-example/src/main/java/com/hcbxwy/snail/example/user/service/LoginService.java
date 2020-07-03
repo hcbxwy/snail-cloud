@@ -1,6 +1,6 @@
 package com.hcbxwy.snail.example.user.service;
 
-import com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO;
+import com.hcbxwy.snail.common.entity.LoginUser;
 import com.hcbxwy.snail.example.user.pojo.vo.LoginVO;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,15 +21,15 @@ public interface LoginService {
      * @author Billson
      * @date 2020/6/30 15:39
      */
-    LoginUserDTO login(LoginVO loginVO);
+    LoginUser login(LoginVO loginVO);
 
     /**
      * 从请求对象中获取当前登录用户信息
      *
      * @param request 请求对象
-     * @return com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO
+     * @return com.hcbxwy.snail.common.entity.LoginUserDTO
      * @author Billson
      * @date 2020/6/30 16:35
      */
-    LoginUserDTO getLoginUser(HttpServletRequest request);
+    LoginUser getLoginUser(HttpServletRequest request);
 }

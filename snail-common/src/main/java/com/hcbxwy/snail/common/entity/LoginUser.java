@@ -1,17 +1,17 @@
-package com.hcbxwy.snail.example.user.pojo.dto;
+package com.hcbxwy.snail.common.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * 登录用户 DTO
+ * 登录用户
  *
  * @author Billson
  * @date 2020/6/30 15:36
  */
 @Data
 @Accessors(chain = true)
-public class LoginUserDTO {
+public class LoginUser {
 
     private String userId;
     private String username;

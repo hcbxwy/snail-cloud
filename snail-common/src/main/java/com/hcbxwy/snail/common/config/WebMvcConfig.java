@@ -1,5 +1,6 @@
-package com.hcbxwy.snail.example.auth.controller;
+package com.hcbxwy.snail.common.config;
 
+import com.hcbxwy.snail.common.interceptor.AuthenticationInterceptor;
 import com.hcbxwy.snail.common.interceptor.ResultResponseInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;

@@ -1,8 +1,8 @@
 package com.hcbxwy.snail.example.demo.controller;
 
-import com.hcbxwy.snail.example.common.BaseController;
+import com.hcbxwy.snail.common.base.BaseController;
 import com.hcbxwy.snail.example.demo.controller.service.DemoService;
-import com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO;
+import com.hcbxwy.snail.common.entity.LoginUser;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController extends BaseController {
 
     @GetMapping("/getLoginUserInfo")
-    public LoginUserDTO getLoginUserInfo() {
+    public LoginUser getLoginUserInfo() {
         return demoService.getLoginInfo();
     }
 

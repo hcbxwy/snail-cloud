@@ -1,6 +1,8 @@
 package com.hcbxwy.snail.example.user.service.impl;
 
 import cn.hutool.crypto.SecureUtil;
+import com.hcbxwy.snail.common.entity.LoginUser;
+import com.hcbxwy.snail.common.base.BaseServiceImpl;
 import com.hcbxwy.snail.example.user.pojo.entity.UserDO;
 import com.hcbxwy.snail.example.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +18,7 @@ import java.util.Objects;
  */
 @Service
 @Slf4j
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends BaseServiceImpl implements UserService {
 
     @Override
     public UserDO getById(String id) {
@@ -45,6 +47,11 @@ public class UserServiceImpl implements UserService {
             return userDO;
         }
         return null;
+    }
+
+    @Override
+    public LoginUser getLoginUserTest() {
+        return super.getLoginUser();
     }
 
 }

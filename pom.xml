@@ -35,23 +35,10 @@
 	<dependencyManagement>
 		<dependencies>
 			<!-- 三方包 -->
-			<!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
 			<dependency>
 				<groupId>com.auth0</groupId>
 				<artifactId>java-jwt</artifactId>
 				<version>${java-jwt.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>fastjson</artifactId>
-				<version>${fastjson.version}</version>
-			</dependency>
-			<!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
-			<dependency>
-				<groupId>cn.hutool</groupId>
-				<artifactId>hutool-all</artifactId>
-				<version>${hutool-all.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -60,6 +47,16 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>${hutool-all.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
 		</dependency>
 		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>

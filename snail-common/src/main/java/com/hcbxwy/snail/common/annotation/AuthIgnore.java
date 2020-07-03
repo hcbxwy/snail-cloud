@@ -1,4 +1,4 @@
-package com.hcbxwy.snail.example.auth.controller;
+package com.hcbxwy.snail.common.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

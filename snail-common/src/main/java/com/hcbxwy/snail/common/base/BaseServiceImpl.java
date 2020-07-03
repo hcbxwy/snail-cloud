@@ -1,7 +1,6 @@
-package com.hcbxwy.snail.example.common;
+package com.hcbxwy.snail.common.base;
 
-import com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO;
-import com.hcbxwy.snail.example.user.service.LoginService;
+import com.hcbxwy.snail.common.entity.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,12 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 public abstract class BaseServiceImpl {
 
     @Autowired
-    protected LoginService loginService;
-    @Autowired
     protected HttpServletRequest request;
 
-    protected LoginUserDTO getLoginUser() {
-        return loginService.getLoginUser(request);
+    protected LoginUser getLoginUser() {
+        return (LoginUser) request.getAttribute("loginUser");
     }
 
     protected String getLoginUserId() {

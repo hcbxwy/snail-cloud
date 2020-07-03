@@ -1,5 +1,6 @@
 package com.hcbxwy.snail.example.user.service;
 
+import com.hcbxwy.snail.common.entity.LoginUser;
 import com.hcbxwy.snail.example.user.pojo.entity.UserDO;
 
 /**
@@ -40,5 +41,7 @@ public interface UserService {
      * @date 2020/6/30 16:54
      */
     UserDO getByUsername(String username);
+
+    LoginUser getLoginUserTest();
 
 }

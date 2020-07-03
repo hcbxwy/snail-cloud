@@ -1,7 +1,8 @@
 package com.hcbxwy.snail.example.user.service.impl;
 
-import com.hcbxwy.snail.example.auth.service.TokenService;
-import com.hcbxwy.snail.example.user.pojo.dto.LoginUserDTO;
+import cn.hutool.core.bean.BeanUtil;
+import com.hcbxwy.snail.common.entity.LoginUser;
+import com.hcbxwy.snail.common.utils.JwtUtil;
 import com.hcbxwy.snail.example.user.pojo.entity.UserDO;
 import com.hcbxwy.snail.example.user.pojo.vo.LoginVO;
 import com.hcbxwy.snail.example.user.service.LoginService;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -25,7 +27,7 @@ import java.util.Objects;
 public class LoginServiceImpl implements LoginService {
 
     @Override
-    public LoginUserDTO login(LoginVO loginVO) {
+    public LoginUser login(LoginVO loginVO) {
         UserDO userDO = userService.getByUsername(loginVO.getUsername());
         if (Objects.isNull(userDO)) {
             log.error("该用户未注册。");
@@ -36,19 +38,19 @@ public class LoginServiceImpl implements LoginService {
             log.error("密码错误，请重新输入。");
             return null;
         }
-        LoginUserDTO loginUserDTO = new LoginUserDTO();
-        loginUserDTO.setUserId(userDO.getId())
+        LoginUser loginUser = new LoginUser();
+        loginUser.setUserId(userDO.getId())
                 .setUsername(userDO.getUsername());
-        String token = tokenService.getToken(userDO.getId(), userDO.getPassword(), loginUserDTO);
-        loginUserDTO.setToken(token);
-        return loginUserDTO;
+        Map<String, Object> dataMap = BeanUtil.beanToMap(loginUser, false, true);
+        String token = JwtUtil.createToken(userDO.getId(), dataMap, null);
+        loginUser.setToken(token);
+        return loginUser;
     }
 
     @Override
-    public LoginUserDTO getLoginUser(HttpServletRequest request) {
-        return (LoginUserDTO) request.getAttribute("loginUserDTO");
+    public LoginUser getLoginUser(HttpServletRequest request) {
+        return (LoginUser) request.getAttribute("loginUserDTO");
     }
 
     private final UserService userService;
-    private final TokenService tokenService;
 }
