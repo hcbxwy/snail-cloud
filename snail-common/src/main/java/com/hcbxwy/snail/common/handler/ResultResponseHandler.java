@@ -1,4 +1,4 @@
-package com.hcbxwy.snail.example.handler;
+package com.hcbxwy.snail.common.handler;
 
 import com.hcbxwy.snail.common.annotation.DefaultResponse;
 import com.hcbxwy.snail.common.entity.Result;

@@ -1,6 +1,5 @@
 package com.hcbxwy.snail.common.entity;
 
-import com.hcbxwy.snail.common.enums.ErrorCodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,26 +22,19 @@ public class Result {
     private Object data;
 
     public static Result success() {
-        Result result = new Result();
-        result.setResultCode(ErrorCodeEnum.SUCCESS);
-        return result;
+        return init();
     }
 
     public static Result success(Object data) {
-        Result result = new Result();
-        result.setResultCode(ErrorCodeEnum.SUCCESS);
+        Result result = init();
         result.setData(data);
         return result;
     }
 
-    public static Result failure(ErrorCodeEnum errorCodeEnum) {
-        Result result = new Result();
-        result.setResultCode(errorCodeEnum);
-        return result;
-    }
-
-    private void setResultCode(ErrorCodeEnum errorCodeEnum) {
-        this.code = errorCodeEnum.getCode();
-        this.message = errorCodeEnum.getMsg();
+    private static Result init() {
+        return Result.builder()
+                .code("00000")
+                .message("操作成功")
+                .build();
     }
 }
